@@ -1,1 +1,0 @@
-Run [analysis.ipynb](../analysis/analysis.ipynb) to create **model.joblib** file and store it here.
