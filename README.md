@@ -1,11 +1,33 @@
 
 
-# Branches
+# Welcome :) Let's get started!
 
-- master: complete project
-- dev_frontend
-- dev_backend
+### This project consists of three major tasks:
+1) **Analysis**: Analyse data and create a machine learning model.
+2) **Backend**: Embed the machine learning model into a RESTful service.
+3) **Frontend**: Design a graphical user interface to interact with the machine learning service.
 
+The git branches of this project represent different stages of the project depending on your skills level. 
+
+### Choose your starting point: 
+- If you want to start with developing a machine learning model, then switch to branch analysis_blank. If you need some more guidance, switch to branch analysis_guide. In branch analysis you can find the final solution. 
+- If you want to skip the machine learning part, you can also directly jump into the backend or the frontend part. **Depending on your skills level, choose either the *_blank* or the *_guide* starting point**.
+![](./images/git_branches.PNG)
+
+### How to get there:
+You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+
+# Analysis
+### Preparation
+1) Go to the Python website (https://www.python.org/downloads/) and **download** the latest version of **Python** for your operating system. Follow the installation instructions to install Python on your machine.
+2) Open a command prompt or terminal window on your machine and install required **packages**: <code>pip install pandas matplotlib seaborn scikit-learn joblib</code>.
+3) In order to work with **Jupyter Notebooks** (.ipynb-files), it may be necessary to download the appropriate **extension** in VSCode.
+4) Let's start! Open file *analysis.ipynb* and follow the instructions there.
+
+### Tips and tricks
+- You can easily run jupyter cells with shortcut STRG + ENTER.
+
+# Backend
 
 # Frontend
 
@@ -34,7 +56,7 @@ Make it work:
 - npm install axios
 - 
 
-
+# Admin
 
 Hallo! 
 Schön dass du dich zu unserem Praxistag angemeldet hast. Wir freuen uns auf dich!
