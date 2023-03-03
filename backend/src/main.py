@@ -14,11 +14,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# REST endpoint: Post data and get prediction result returned.
-@app.post("/predict")
-def predict(*, data: InputData):
-    result = prediction_model.predict(data)
-    return result[0]
+# TODO Implement a REST endpoint. Receive input data and return the prediction result. 
+# You can use fastapi for implementation. Find more information here: https://fastapi.tiangolo.com/tutorial/body/.  
+
+
+
+
+
+
 
 if __name__ == "__main__":
     uvicorn.run(app, host="localhost", port=80)

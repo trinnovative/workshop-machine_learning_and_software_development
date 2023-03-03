@@ -1,10 +1,6 @@
 from pydantic import BaseModel
 import numpy as np
 
-class InputData(BaseModel):
-    MedInc: float
-    Latitude: float
-    Longitude: float
+# TODO Create a suitable datatype for your input data. 
+# You can use fastapi for implementation. Find more information here: https://fastapi.tiangolo.com/tutorial/body/. 
 
-    def convert_to_feature_vector(self):
-        return np.array([self.MedInc, self.Latitude, self.Longitude]).reshape(1,-1)
