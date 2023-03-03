@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# REST request: Post data and get prediction result returned
+# REST endpoint: Post data and get prediction result returned.
 @app.post("/predict")
 def predict(*, data: InputData):
     result = prediction_model.predict(data)
