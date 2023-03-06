@@ -1,7 +1,7 @@
 import { useState } from 'react'
+import axios from 'axios';
 import californiaLogo from './assets/california.jpg'
 import trinnovativeLogo from './assets/logo_trinnovative_white.svg'
-import predict from './service'
 import './App.css'
 
 
@@ -16,7 +16,8 @@ function App() {
       Latitude: formData.get('Latitude'),
       Longitude: formData.get('Longitude')
     };
-    predict(data)
+    const body = JSON.stringify(data);
+    axios.post('http://localhost:80/predict', body, {headers: {'Content-Type': 'application/json'}})
       .then(response => {
         setResponseMessage(`${JSON.stringify(response.data)} $`);
       })
