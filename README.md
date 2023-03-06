@@ -76,46 +76,36 @@ Have a look at file *App.jsx*. Adjust the **html** code.
 You can adjust styling of your html elements with **css** code. Therefore, open file *App.css*. You can set tags on html elements with <code>className="your-tag"</code> and define corresponding styling in the css file. 
 
 ### #3 Make it work
-Finally, we want to connect frontend with backend. When the user enters values and presses the button, a request should be sent to the backend and the prediction result should be displayed. First of all, we need a function, which communicates with the backend. 
+Finally, we want to connect frontend with backend. When the user enters values and presses the button, a request should be sent to the backend and the prediction result should be displayed. Therefore, we need to adjust html code and add some javascript. In file *App.jsx*:
 
-- Create new file *service.js*.
-- Implement function **predict**, which sends a REST request to our backend application and returns the result. 
-- You can use *axios* library for doing so. Install axios with npm: <code>npm install axios</code>
- 
-````
-import axios from 'axios';
-
-export function predict(data) {
-    // Add implementation
-}
-
-export default predict
-````
-Last but not least, we want to get function *predict* connected to frontend. Therefore, we need to adjust html code and add some javascript. In file *App.jsx*:
 - Add tag *type="submit"* to button. 
 - Put input fields and button into a *form* element: <code> < form onSubmit={handleFormSubmit}> ... < /form> </code> element.
-- Implement function **handleFormSubmit** which is executed when pressing the button. The function gets the data entered in the input fields, calls function *predict* and stores the result in variable responseMessage. Complete this code:
+- Implement function **handleFormSubmit** which is executed when pressing the button. The function gets the data entered in the input fields, sends a request to the backend and stores the result in variable responseMessage. Use *axios* library for sending a REST request. Therefore install axios with npm: <code>npm install axios</code>. Complete the code below:
+  ````  
+  function App() {
+    const [responseMessage, setResponseMessage] = useState('');
 
-````
-function App() {
-  const [responseMessage, setResponseMessage] = useState('');
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = {
+        MedInc: formData.get('MedInc'),
+        // TODO Add further features here
 
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {
-      MedInc: formData.get('MedInc'),
-      # Add further features here
-    };
-    predict(data)
-      .then(response => {
-        setResponseMessage(`${JSON.stringify(response.data)} $`);
-      })
-      .catch(error => {
-        setResponseMessage(`Error: ${error.message}`);
-      });
-  }
-````
+      };
+      const body = JSON.stringify(data);
+      // TODO Add REST request here
+      
+
+        .then(response => {
+          setResponseMessage(`${JSON.stringify(response.data)} $`);
+        })
+        .catch(error => {
+          setResponseMessage(`Error: ${error.message}`);
+        });
+    }
+  ````
+
 - Add a section to the html code, which shows the **prediction result**. You can retrieve variable values by putting them into curly brackets: <code>{responseMessage}</code>.
 <br>
 - **Test** your implementation. Do not forget to run backend on your localhost before, otherwise the service would not be reachable (run backend/main.py). 
