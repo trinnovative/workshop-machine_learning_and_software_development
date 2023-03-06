@@ -2,14 +2,25 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+}
+
+.powered-by {
+  text-align: right;
+  background-image: linear-gradient(to left, #28788F, #68a6af);
 }
 
 .logo {
-  height: 16em;
-  padding: 1.5em;
+  height: 3em;
   will-change: filter;
   transition: filter 300ms;
+}
+
+.california {
+  height: 10em;
+}
+
+.intro {
+  text-align: center;
 }
 
 @keyframes logo-spin {
@@ -45,5 +56,5 @@
 }
 
 .result {
-  color: #24bba2e8;
+  text-align: center;
 }
