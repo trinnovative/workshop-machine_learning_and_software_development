@@ -28,11 +28,11 @@ function App() {
 
   return (
 
-    <div className="App">
+    <div>
 
       <div className="powered-by">
-        <a href="https://www.trinnovative.de/">
-          <img className="logo" src={trinnovativeLogo} alt="Trinnovative" />
+        <a href="https://www.trinnovative.de/" target="_blank">
+          <img className="logo" src={trinnovativeLogo} alt="Trinnovative Logo"/>
         </a>
       </div>
 
