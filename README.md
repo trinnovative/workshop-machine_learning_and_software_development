@@ -50,29 +50,76 @@ The aim of this backend is to put the machine learning model into a RESTful serv
     ![Postman Example](./images/postman_example.PNG)
 
 # Frontend
+Let's create an appealing user interface! The user should be able to enter feature values and to get the prediction of the machine learning model displayed.
 ## Preparation
-- Download nodejs https://nodejs.org/en/download/
-- cd src
-- npm create vite@latest frontend -- --template react
-- cd frontend
-- **npm install**
-- **npm run dev**
-- open link http://localhost:5173/ in your browser
-- see the default webpage
-- find the corresponding source code in App.jsx
-- the styling is defined in App.css
-- use this template to build your own webpage
+At first, some prep:
+- Download nodejs https://nodejs.org/en/download/.
+- Open project workspace and navigate to parent directory (where folder 'backend' resides).
+- Setup frontend template by executing this command in the terminal: <code>npm create vite@latest frontend -- --template react </code>
+- Switch into new direcotry *frontend*: <code>cd frontend</code>
+- Install dependencies: <code>npm install</code>
+- Run frontend: <code>npm run dev</code>
+- Open link http://localhost:5173/ in your browser.
+- See the default webpage.
+- Use this template to build your own webpage. 
 
 ## Step-by-step guide
-Make it look good:
-- Replace the headline 
-- Replace the two logos with an image about California
-- Add some numerical input fields
-- Adjust the button
 
+### #1 Create elements 
+Have a look at file *App.jsx*. Adjust the **html** code.
+- Replace the headline.
+- Replace the two logos with an image about California.
+- Add some input fields. 
+- Adjust the button.
+
+### #2 Make it look good
+You can adjust styling of your html elements with **css** code. Therefore, open file *App.css*. You can set tags on html elements with <code>className="your-tag"</code> and define corresponding styling in the css file. 
+
+### #3 Make it work
+Finally, we want to connect frontend with backend. When the user enters values and presses the button, a request should be sent to the backend and the prediction result should be displayed. First of all, we need a function, which communicates with the backend. 
+
+- Create new file *service.js*.
+- Implement function **predict**, which sends a REST request to our backend application and returns the result. 
+- You can use *axios* library for doing so. Install axios with npm: <code>npm install axios</code>
+ 
+````
+import axios from 'axios';
+
+export function predict(data) {
+    // Add implementation
+}
+
+export default predict
+````
+Last but not least, we want to get function *predict* connected to frontend. Therefore, we need to adjust html code and add some javascript. In file *App.jsx*:
+- Add tag *type="submit"* to button. 
+- Put input fields and button into a *form* element: <code> < form onSubmit={handleFormSubmit}> ... < /form> </code> element.
+- Implement function **handleFormSubmit** which is executed when pressing the button. The function gets the data entered in the input fields, calls function *predict* and stores the result in variable responseMessage. Complete this code:
+
+````
+function App() {
+  const [responseMessage, setResponseMessage] = useState('');
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const data = {
+      MedInc: formData.get('MedInc'),
+      # Add further features here
+    };
+    predict(data)
+      .then(response => {
+        setResponseMessage(`${JSON.stringify(response.data)} $`);
+      })
+      .catch(error => {
+        setResponseMessage(`Error: ${error.message}`);
+      });
+  }
+````
+- Add a section to the html code, which shows the **prediction result**. You can retrieve variable values by putting them into curly brackets: <code>{responseMessage}</code>.
+<br>
+- **Test** your implementation. Do not forget to run backend on your localhost before, otherwise the service would not be reachable (run backend/main.py). 
+
+### Example
+If you lack creativity, here's an example how the result may look like:
 ![example](./images/frontend_example.PNG)
-
-
-Make it work:
-- npm install axios
-- 
