@@ -1,85 +1,31 @@
 import { useState } from 'react'
-import californiaLogo from './assets/california.jpg'
-import trinnovativeLogo from './assets/logo_trinnovative_white.svg'
-import predict from './service'
+import reactLogo from './assets/react.svg'
 import './App.css'
 
-
 function App() {
-  const [responseMessage, setResponseMessage] = useState('');
-
-  function handleFormSubmit(event) {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = {
-      MedInc: formData.get('MedInc'),
-      Latitude: formData.get('Latitude'),
-      Longitude: formData.get('Longitude')
-    };
-    predict(data)
-      .then(response => {
-        setResponseMessage(`${JSON.stringify(response.data)} $`);
-      })
-      .catch(error => {
-        setResponseMessage(`Error: ${error.message}`);
-      });
-  }
+  const [count, setCount] = useState(0)
 
   return (
-
     <div className="App">
 
-      <div className="powered-by">
-        <a href="https://www.trinnovative.de/">
-          <img className="logo" src={trinnovativeLogo} alt="Trinnovative" />
-        </a>
+      <img src={reactLogo} className="logo react" alt="React logo" />
+
+      <h1>Vite + React</h1>
+
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
       </div>
 
-      <div className="intro">
-        <h1>California Housing</h1>
-        <img src={californiaLogo} className="california" alt="California" />
-        <h3>Tell us more...</h3>
-      </div>
-  
-      <div className="input-section">
-        <form onSubmit={handleFormSubmit}>
-          <label>
-            median income in block group:
-            <input type="text" class="input-field" name="MedInc"/>
-          </label> 
-          <br></br>
-          <label>
-            block group latitude:
-            <input type="text" class="input-field" name="Latitude"/>
-          </label> 
-          <br></br>
-          <label>
-            block group longitude:
-            <input type="text" class="input-field" name="Longitude"/>
-          </label>
-          <br></br> 
-          <button type="submit">Predict</button>
-        </form>
-      </div>
-
-      <div className="result">
-        {responseMessage && <h3>The median house value is:</h3>}
-        {responseMessage && <h2 className='result'>{responseMessage}</h2>}
-        {!responseMessage && <br></br>}
-        {!responseMessage && <br></br>}
-        {!responseMessage && <br></br>}
-        {!responseMessage && <br></br>}
-        {!responseMessage && <br></br>}
-      </div>
-
-      <div className="powered-by">
-        <br></br>
-        <br></br>
-      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
       
     </div>
-
-
   )
 }
 

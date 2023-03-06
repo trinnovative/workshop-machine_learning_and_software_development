@@ -50,29 +50,81 @@ The aim of this backend is to put the machine learning model into a RESTful serv
     ![Postman Example](./images/postman_example.PNG)
 
 # Frontend
+Let's create an appealing user interface! The user should be able to enter feature values and to get the prediction of the machine learning model displayed.
 ## Preparation
-- Download nodejs https://nodejs.org/en/download/
-- cd src
-- npm create vite@latest frontend -- --template react
-- cd frontend
-- **npm install**
-- **npm run dev**
-- open link http://localhost:5173/ in your browser
-- see the default webpage
-- find the corresponding source code in App.jsx
-- the styling is defined in App.css
-- use this template to build your own webpage
+At first, some prep:
+- Switch into direcotry *frontend*: <code>cd frontend</code>
+- Install dependencies: <code>npm install</code>
+- Run frontend: <code>npm run dev</code>
+- Open link http://localhost:5173/ in your browser.
+- See the REACT default template.
+- Use this template to build your own webpage. 
 
 ## Step-by-step guide
-Make it look good:
-- Replace the headline 
-- Replace the two logos with an image about California
-- Add some numerical input fields
-- Adjust the button
 
+### #1 Create elements 
+Have a look at file [App.jsx](./frontend/src/App.jsx). Adjust the **html** code.
+- Replace the headline.
+- Replace the react logo with an image about California (e.g. [california.jpg](./frontend/src/assets/california.jpg)).
+- Add some input fields with <code> < input type="text"/> </code>.
+- Adjust the button.
+
+### #2 Make it look good
+You can adjust styling of your html elements with **css** code. Therefore, open file [App.css](./frontend/src/App.css). You can set tags on html elements with <code>className="your-tag"</code> and define corresponding styling in the css file. Example: 
+- Add tag <code>class="input-field"</code> to your input fields.
+- Add following css code:
+````
+.input-field {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 8px;
+  margin: 8px;
+  width: 200px;
+}
+````
+
+### #3 Make it work
+Finally, we want to connect frontend with backend. When the user enters values and presses the button, a request should be sent to the backend and the prediction result should be displayed. Therefore, we need to adjust html code and add some javascript. In file *App.jsx*:
+
+- Add tag <code>type="submit"</code> to button. 
+- Put input fields and button into a *form* element: <code> < form> ... < /form> </code> element.
+- Add a name tag (e.g. <code>name="MedInc"</code>) to all input fields, so we can retrieve entered values.
+- Add tag <code>onSubmit={handleFormSubmit}</code> to form element.
+- Implement function **handleFormSubmit** which is executed when pressing the button. The function gets the data entered in the input fields, sends a request to the backend and stores the result in variable responseMessage. 
+
+  Insert and complete the code below:
+  ````  
+  function App() {
+    const [responseMessage, setResponseMessage] = useState('');
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = {
+        MedInc: formData.get('MedInc'),
+        // TODO Add further features here
+
+      };
+      const body = JSON.stringify(data);
+      // TODO Add REST request here
+      
+
+        .then(response => {
+          setResponseMessage(`${JSON.stringify(response.data)} $`);
+        })
+        .catch(error => {
+          setResponseMessage(`Error: ${error.message}`);
+        });
+    }
+  ````
+  Use *axios* library for sending a REST request (see an example [here](https://axios-http.com/docs/post_example)). Therefore install axios with npm: <code>npm install axios</code>. 
+
+- Add a section to the html code, which shows the **prediction result**. 
+  - You can retrieve variable values by putting them into curly brackets: <code>{responseMessage}</code>. 
+  - If you want to display an element only if variable responseMessage is set, you can use conditional expression: <code>{responseMessage && < p>whatsoever< /p>}</code> <br></br>
+- **Test** your implementation. Enter some values and press the button. Do you get a result? Do not forget to run backend on your localhost before, otherwise the service would not be reachable (run backend/main.py). 
+
+### Example
+If you lack creativity, here's an example how the result may look like:
 ![example](./images/frontend_example.PNG)
-
-
-Make it work:
-- npm install axios
-- 
