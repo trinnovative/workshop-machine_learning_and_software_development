@@ -15,7 +15,8 @@ The git branches of this project represent different stages of the project depen
 
 
 ### How to get there:
-- You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+- Show all branches with <code>git branch -a</code>.
+- Switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
 
 # Try the final version
 This branch (main) contains the final version of the project. Find some instructions below on how to get this final version run. For more detailed information please checkout branches *analysis*, *backend* and *frontend_guide*. 
