@@ -20,18 +20,20 @@ The git branches of this project represent different stages of the project depen
 # Try the final version
 This branch (main) contains the final version of the project. Find some instructions below on how to get this final version run. For more detailed information please checkout branches *analysis*, *backend* and *frontend_guide*. 
 ## Analysis
+- Go to the Python website (https://www.python.org/downloads/) and **download** the latest version of **Python** for your operating system. Follow the installation instructions to install Python on your machine.
+- Open a command prompt or terminal window on your machine and install required **packages**: <code>pip install pandas matplotlib seaborn scikit-learn joblib</code>.
+- In order to work with **Jupyter Notebooks** (.ipynb-files), it may be necessary to download the appropriate **extension** in VSCode. Download will be suggested automatically when trying to run a cell.
 - Run [analysis.ipynb](./backend/analysis/analysis.ipynb) with button *Run All*. This will create the machine learning model file *model.joblib* in folder [artifacts](./backend/artifacts/). 
-- Therefore it may be necessary to...
-    - Go to the Python website (https://www.python.org/downloads/) and **download** the latest version of **Python** for your operating system. Follow the installation instructions to install Python on your machine.
-    - Open a command prompt or terminal window on your machine and install required **packages**: <code>pip install pandas matplotlib seaborn scikit-learn joblib</code>.
-    - In order to work with **Jupyter Notebooks** (.ipynb-files), it may be necessary to download the appropriate **extension** in VSCode.
+    
 
 ## Backend
+- Install required packages: <code>pip install pydantic uvicorn fastapi</code>.
 - Run [main.py](./backend/src/main.py).
-- It may be necessary to install required packages (pip install pydantic uvicorn fastapi).
+
 
 ## Frontend
-- Switch into direcotry *frontend*: <code>cd frontend</code>
+- Download nodejs https://nodejs.org/en/download/.
+- Switch into directory *frontend*: <code>cd frontend</code>
 - Install dependencies: <code>npm install</code>
 - Run frontend: <code>npm run dev</code>
 - Open link http://localhost:5173/ in your browser.
