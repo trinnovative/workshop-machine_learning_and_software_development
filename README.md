@@ -15,7 +15,9 @@ The git branches of this project represent different stages of the project depen
 
 
 ### How to get there:
-- You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+- Show all branches with <code>git branch -a</code>.
+- Switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+
 
 # Backend
 
@@ -40,3 +42,5 @@ The aim of this backend is to put the machine learning model into a RESTful serv
 5) **Let's see if it works!** If you think you are ready, run [main.py](/backend/src/main.py). Open a tool like postman and send a request to *localhost:80*. Do you get a response?
 
     ![Postman Example](./images/postman_example.PNG)
+
+6) Optional: You can assure functionality of your implementation by setting up unit and integration **tests**. Find an example in [main__test.py](./backend/src/main__test.py). Run tests by entering command <code>pytest</code> in the terminal. Are all tests successful?
