@@ -15,7 +15,9 @@ The git branches of this project represent different stages of the project depen
 
 
 ### How to get there:
-- You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+- Show all branches with <code>git branch -a</code>.
+- Switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+
 
 ## Analysis
 ### Preparation
