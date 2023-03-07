@@ -20,6 +20,7 @@ The git branches of this project represent different stages of the project depen
 Let's create an appealing user interface! The user should be able to enter feature values and to get the prediction of the machine learning model displayed.
 ## Preparation
 At first, some prep:
+- Download nodejs https://nodejs.org/en/download/.
 - Switch into direcotry *frontend*: <code>cd frontend</code>
 - Install dependencies: <code>npm install</code>
 - Run frontend: <code>npm run dev</code>
