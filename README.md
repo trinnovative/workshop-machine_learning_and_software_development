@@ -14,7 +14,9 @@ The git branches of this project represent different stages of the project depen
 - If you want to skip the machine learning part, you can also directly jump into the backend or the frontend part. **Depending on your skills level, choose either the *blank* or the *guide* starting point**.
 
 ### How to get there:
-- You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+- Show all branches with <code>git branch -a</code>.
+- Switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+
 
 # Frontend
 Let's create an appealing user interface! The user should be able to enter feature values and to get the prediction of the machine learning model displayed.
