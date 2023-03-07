@@ -13,9 +13,10 @@ The git branches of this project represent different stages of the project depen
 - If you want to start with developing a machine learning model, then switch to branch analysis_guide and find tasks there. If you need some guidance, switch to branch analysis_guide and follow the step-by-step guide. In branch analysis you can find the final solution. 
 - If you want to skip the machine learning part, you can also directly jump into the backend or the frontend part. **Depending on your skills level, choose either the *blank* or the *guide* starting point**.
 
-
 ### How to get there:
-- You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+- Show all branches with <code>git branch -a</code>.
+- Switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+
 
 
 ## Analysis
