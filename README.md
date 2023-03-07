@@ -16,3 +16,12 @@ The git branches of this project represent different stages of the project depen
 
 ### How to get there:
 - You can easily switch between branches with the checkout command from git. For example: <code>git checkout analysis_guide</code>.
+
+
+## Analysis
+- Go to the Python website (https://www.python.org/downloads/) and **download** the latest version of **Python** for your operating system. Follow the installation instructions to install Python on your machine.
+- Open a command prompt or terminal window on your machine and install required **packages**: <code>pip install pandas matplotlib seaborn scikit-learn joblib</code>.
+- In order to work with **Jupyter Notebooks** (.ipynb-files), it may be necessary to download the appropriate **extension** in VSCode. Download will be suggested automatically when trying to run a cell.
+- Run [analysis.ipynb](./backend/analysis/analysis.ipynb) with button *Run All*. This will create the machine learning model file *model.joblib* in folder [artifacts](./backend/artifacts/). 
+
+   
